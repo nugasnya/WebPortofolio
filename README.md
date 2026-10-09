@@ -126,6 +126,10 @@ Beberapa pengembangan yang dapat dilakukan:
 * Mengoptimalkan ukuran video dan audio agar halaman lebih cepat dimuat.
 * Menambahkan tautan GitHub dan informasi kontak.
 
+## Informasi Tambahan
+
+* Website yang dibuat tidak menampilkan email yang dapat dihubungi (Sedikit menambahkan keamanan agar tidak ada spam).
+
 ---
 
 <p align="center">
