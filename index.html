@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Halaman pembuka portofolio personal Mochammad Farhan Hikmadi."
+    >
+
+    <meta name="theme-color" content="#ff3366">
+
+    <title>Portofolio Personal | Farhan</title>
+
+    <!-- CSS eksternal -->
+    <link rel="stylesheet" href="styless.css">
+
+    <!-- JavaScript eksternal -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Video Latar -->
+    <div class="video-container" aria-hidden="true">
+        <video
+            id="background-video"
+            class="background-video"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            tabindex="-1"
+        >
+            <source
+                src="images/anime-girl-maid-dance-moewalls-com (1).mp4"
+                type="video/mp4"
+            >
+
+            <source
+                src="images/anime-girl-maid-dance-moewalls-com (1).webm"
+                type="video/webm"
+            >
+
+            Browser Anda tidak mendukung video HTML5.
+        </video>
+    </div>
+
+    <!-- Header dan Navigasi -->
+    <header class="navbar">
+        <nav class="navbar__container" aria-label="Navigasi utama">
+
+            <a
+                href="Beranda.html"
+                class="brand"
+                aria-label="Buka portofolio Farhan"
+            >
+                FARHAN<span>.</span>
+            </a>
+
+            <a href="Beranda.html" class="button">
+                Buka Portofolio
+                <span aria-hidden="true">&rarr;</span>
+            </a>
+
+        </nav>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="hero">
+
+        <div class="hero__content">
+
+            <p class="hero__eyebrow">
+                WELCOME TO MY PERSONAL WEBSITE
+            </p>
+
+            <h1>
+                Halo, Saya
+                <span class="highlight">
+                    Farhan
+                </span>
+            </h1>
+
+            <p class="hero__description">
+                Selamat datang di halaman portofolio personal saya.
+                Di sini kamu dapat mengenal profil, keterampilan,
+                pendidikan, dan proyek yang sedang saya kembangkan
+                di bidang teknologi informasi.
+            </p>
+
+            <div class="hero__actions">
+
+                <a href="Beranda.html" class="button button--primary">
+                    Jelajahi Portofolio
+                    <span aria-hidden="true">&rarr;</span>
+                </a>
+
+                <button
+                    type="button"
+                    id="audioButton"
+                    class="button button--secondary"
+                    aria-pressed="false"
+                >
+                    <span aria-hidden="true">&#9654;</span>
+                    Putar Video & Musik
+                </button>
+
+            </div>
+
+            <p class="hero__note">
+                HTML &bull; CSS &bull; C Programming
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- Audio Latar -->
+    <audio
+        id="background-audio"
+        loop
+        preload="none"
+    >
+        <source
+            src="audio/y2meta.net_320kbps-kita-ikuyo-dances-to-doodle-song-xi-duo-yu-dai-detui-shinozi-opdansu.mp3"
+            type="audio/mpeg"
+        >
+
+        Browser Anda tidak mendukung audio HTML5.
+    </audio>
+
+    <!-- Efek Kursor -->
+    <div
+        class="glowing-light"
+        aria-hidden="true"
+    ></div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>
+            &copy; 2026 Mochammad Farhan Hikmadi
+        </p>
+    </footer>
+
+</body>
+</html>
+

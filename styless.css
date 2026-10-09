@@ -1,0 +1,657 @@
+
+/* ========================================
+   1. RESET DAN PENGATURAN DASAR
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --pink-primary: #ff3366;
+    --pink-secondary: #ff6699;
+    --pink-light: #ffb3cc;
+    --white: #ffffff;
+    --text-light: #fff5f8;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: hidden;
+
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--white);
+    background: #24131d;
+
+    isolation: isolate;
+    animation: pageFadeIn 1s ease-out;
+}
+
+/* ========================================
+   2. ANIMASI
+======================================== */
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes backgroundFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowPulse {
+    from {
+        box-shadow: 0 0 8px rgba(255, 51, 102, 0.5);
+    }
+
+    to {
+        box-shadow:
+            0 0 15px rgba(255, 51, 102, 0.9),
+            0 0 30px rgba(255, 51, 102, 0.4);
+    }
+}
+
+/* ========================================
+   3. VIDEO LATAR
+======================================== */
+
+.video-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    height: 100svh;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+    background: #24131d;
+
+    animation: backgroundFadeIn 1.5s ease-out;
+}
+
+.video-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 8, 17, 0.65) 0%,
+            rgba(30, 10, 22, 0.35) 55%,
+            rgba(30, 10, 22, 0.2) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(20, 8, 17, 0.45),
+            transparent 50%
+        );
+}
+
+.background-video {
+    position: absolute;
+    inset: 0;
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: blur(3px);
+    transform: scale(1.04);
+
+    transition:
+        filter 0.8s ease,
+        transform 0.8s ease;
+}
+
+/* Video saat diputar */
+.background-video.is-playing {
+    filter: blur(0);
+    transform: scale(1);
+}
+
+/* ========================================
+   4. HEADER DAN NAVIGASI
+======================================== */
+
+.navbar {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 20px 7%;
+
+    background: rgba(25, 10, 20, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Logo Farhan */
+
+.brand {
+    display: inline-block;
+
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.brand span {
+    color: var(--pink-primary);
+}
+
+.brand:hover {
+    color: var(--pink-light);
+    transform: scale(1.04);
+}
+
+/* Tombol navigasi atas */
+
+.navbar .button {
+    position: static;
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   5. SEMUA TOMBOL
+======================================== */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    max-width: 100%;
+    padding: 13px 25px;
+
+    color: var(--white);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
+
+    text-align: center;
+    text-decoration: none;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    cursor: pointer;
+    overflow-wrap: anywhere;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.button:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 4px;
+}
+
+/* Tombol utama */
+
+.button--primary {
+    background: linear-gradient(
+        135deg,
+        var(--pink-primary),
+        var(--pink-secondary)
+    );
+
+    box-shadow: 0 6px 20px rgba(255, 51, 102, 0.3);
+}
+
+.button--primary:hover {
+    background: linear-gradient(
+        135deg,
+        #ed2458,
+        #ff477e
+    );
+
+    box-shadow: 0 10px 25px rgba(255, 51, 102, 0.45);
+}
+
+/* Tombol sekunder */
+
+.button--secondary {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.button--secondary:hover {
+    background: rgba(255, 102, 153, 0.25);
+    border-color: var(--pink-light);
+}
+
+/* ========================================
+   6. KONTEN UTAMA
+======================================== */
+
+.hero {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+    padding: 65px 7% 85px;
+}
+
+.hero__content {
+    width: 100%;
+    max-width: 760px;
+
+    animation: heroAppear 1s ease-out both;
+}
+
+/* Label pembuka */
+
+.hero__eyebrow {
+    display: inline-block;
+
+    margin-bottom: 20px;
+    padding: 7px 14px;
+
+    color: var(--pink-light);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+
+    background: rgba(255, 102, 153, 0.12);
+    border: 1px solid rgba(255, 153, 187, 0.35);
+    border-radius: 5px;
+}
+
+/* Judul */
+
+.hero h1 {
+    margin-bottom: 20px;
+
+    color: var(--white);
+
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+
+    overflow-wrap: anywhere;
+}
+
+.highlight {
+    display: inline-block;
+
+    color: var(--pink-secondary);
+
+    text-shadow: 0 0 20px rgba(255, 102, 153, 0.25);
+}
+
+/* Deskripsi */
+
+.hero__description {
+    max-width: 650px;
+    margin-bottom: 30px;
+
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+/* ========================================
+   7. TOMBOL DI KONTEN UTAMA
+======================================== */
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 10px;
+}
+
+.hero__actions .button {
+    min-height: 48px;
+}
+
+/* Ikon tombol musik */
+
+#audioButton span {
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   8. TEKS TEKNOLOGI
+======================================== */
+
+.hero__note {
+    margin-top: 30px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   9. KURSOR BERCAHAYA
+======================================== */
+
+.glowing-light {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 14px;
+    height: 14px;
+
+    background: var(--pink-primary);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px rgba(255, 51, 102, 0.8),
+        0 0 20px rgba(255, 51, 102, 0.45);
+
+    pointer-events: none;
+    z-index: 10;
+
+    opacity: 0;
+    transform: translate(-50%, -50%);
+
+    animation: glowPulse 1.2s ease-in-out infinite alternate;
+}
+
+/* ========================================
+   10. FOOTER
+======================================== */
+
+.site-footer {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    padding: 18px 20px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 0.8rem;
+    text-align: center;
+
+    background: rgba(20, 8, 17, 0.45);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.site-footer p {
+    line-height: 1.7;
+}
+
+/* ========================================
+   11. TABLET
+======================================== */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .brand {
+        font-size: 1.4rem;
+    }
+
+    .navbar .button {
+        padding: 9px 14px;
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        padding: 60px 6% 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.4rem, 7vw, 3.7rem);
+    }
+
+    .hero__description {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .hero__actions {
+        gap: 12px;
+    }
+
+    .button {
+        padding: 12px 19px;
+        font-size: 0.9rem;
+    }
+
+    .glowing-light {
+        display: none;
+    }
+}
+
+/* ========================================
+   12. HP
+======================================== */
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px 18px;
+    }
+
+    .navbar__container {
+        gap: 10px;
+    }
+
+    .brand {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .navbar .button {
+        gap: 6px;
+        padding: 8px 11px;
+        font-size: 0.72rem;
+        border-radius: 6px;
+    }
+
+    .hero {
+        padding: 50px 22px 60px;
+    }
+
+    .hero__eyebrow {
+        margin-bottom: 18px;
+        padding: 6px 10px;
+
+        font-size: 0.67rem;
+        letter-spacing: 1.3px;
+    }
+
+    .hero h1 {
+        margin-bottom: 18px;
+
+        font-size: clamp(2.1rem, 10vw, 3rem);
+        line-height: 1.2;
+        letter-spacing: -0.8px;
+    }
+
+    .hero__description {
+        margin-bottom: 25px;
+        font-size: 0.92rem;
+        line-height: 1.8;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .hero__actions .button {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 15px;
+        font-size: 0.88rem;
+    }
+
+    .hero__note {
+        margin-top: 24px;
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+        line-height: 1.8;
+    }
+
+    .site-footer {
+        padding: 15px 12px;
+        font-size: 0.72rem;
+    }
+}
+
+/* ========================================
+   13. HP KECIL
+======================================== */
+
+@media (max-width: 350px) {
+    .navbar {
+        padding: 12px;
+    }
+
+    .brand {
+        font-size: 1rem;
+    }
+
+    .navbar .button {
+        padding: 8px;
+        font-size: 0.68rem;
+    }
+
+    .hero {
+        padding: 40px 16px 50px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero__eyebrow {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* ========================================
+   14. AKSESIBILITAS
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (hover: none) {
+    .button:hover {
+        transform: none;
+    }
+
+    .brand:hover {
+        transform: none;
+    }
+}
+
