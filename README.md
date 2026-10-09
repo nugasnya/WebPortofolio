@@ -130,6 +130,7 @@ Beberapa pengembangan yang dapat dilakukan:
 
 * Website yang dibuat tidak menampilkan email yang dapat dihubungi (Sedikit menambahkan keamanan agar tidak ada spam).
 * Website ini juga banyak yang tidak tetap / berubah ubah pada setiap versi.. jadi mohon maaf jika ada kesalahan pada versi release tertentu.
+* Website ini juga menggunakan ai untuk pembuatan dan beberapa perubahan secara manual agar tampilan sesuai yang di inginkan.
 
 ---
 
